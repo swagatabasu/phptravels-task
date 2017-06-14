@@ -11,6 +11,7 @@ import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -47,6 +48,7 @@ public abstract class BaseTest {
     @BeforeMethod
     public void setUp(final Method method) {
         setDriver(new FirefoxDriver());
+        getWebDriver().manage().window().maximize();
         logExecutionOrder(method);
     }
 
@@ -98,6 +100,19 @@ public abstract class BaseTest {
         if (driver != null) {
             driver.quit();
         }
+    }
+
+    protected String randomString() {
+        String source = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 8) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * source.length());
+            salt.append(source.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+
     }
 
     private WebDriver markForAutoClose(final WebDriver webDriver) {

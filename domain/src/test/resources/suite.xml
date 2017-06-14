@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="FF test suite">
-    <test name="Google authorization tests">
+<suite name="Test suite">
+    <test name="PHP Travels Test">
         <classes>
-            <class name="com.blogspot.notes.automation.qa.tests.AuthorizationTests">
+            <class name="com.blogspot.notes.automation.qa.tests.PhpTravels">
                 <methods>
-                    <include name="correctLoginIntoGoogleAccount"/>
+                    <include name="AddNewAdminAndVerify"/>
                 </methods>
             </class>
         </classes>

@@ -44,6 +44,7 @@ public class HTMLElement extends By {
         }
     }
 
+
     public By getLocator() {
         return locator;
     }
@@ -105,6 +106,10 @@ public class HTMLElement extends By {
                 break;
         }
     }
+
+//    public List<WebElement> findElements(By locator) {
+//        return getDriver().findElements(locator);
+//    }
 
     @Override
     public List<WebElement> findElements(final SearchContext searchContext) {

@@ -9,6 +9,8 @@ public class CheckBox extends HTMLElement {
         super(driver, elementSearchCriteria, elementValue);
     }
 
+
+
     public void check() {
         if (!isSelected()) {
             waitUntil(ExpectedConditions::elementToBeClickable).click();
@@ -22,6 +24,6 @@ public class CheckBox extends HTMLElement {
     }
 
     public boolean isSelected() {
-        return waitUntil(ExpectedConditions::visibilityOfElementLocated).isSelected();
+        return waitUntil(ExpectedConditions::elementToBeClickable).isSelected();
     }
 }
